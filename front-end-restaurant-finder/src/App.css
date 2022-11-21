@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input,
+button {
+  font: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  font-size: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #000;
+  font-family: 'Nunito', sans-serif;
+}
+
+p {
+    color: gray;
+}
+
+
+article {
+  margin: 1em;
+  padding: 1em;
+  background-color: midnightblue;
+  color: whitesmoke;
+  border-radius: 15px;
+}
+
+img {
+  border-radius: 15px;
+  display: block;
+}
+
+header {
+  background-color: rgba(255, 222, 173, 0.637);
+  padding: 1em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.search {
+  width: 95%;
+  border: 2px solid #000;
+  border-radius: 2em;
+  overflow: hidden;
+  font-size: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.search:focus-within {
+  box-shadow: 2px 2px 5px #000;
+}
+
+.search__button,
+.search__input {
+  background-color: #fff;
+  border: none;
+  outline: none;
+}
+
+.search__input {
+  padding: 1em;
+  width: 85%;
+}
+
+.search__button {
+  width: 15%;
+  font-size: 1.5rem;
+  padding-right: 0.5em;
+  color: gray;
+  display: grid;
+  place-content: center;
+}
+
+@media (min-width: 576px) {
+  .search {
+    font-size: 1.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search__button {
+    font-size: 2rem;
   }
+}
+
+@media (min-width: 800px) {
+  .search {
+    width: 75%;
+    font-size: 2rem;
+  }
+
+  .search__button {
+    padding-right: 0.5em;
+    font-size: 3rem;
+  }
+}
+
+.__area {
+  font-family: 'Cairo', sans-serif;
+  color: #7c7671;
+  margin-top: 100px
+}
+
+.__card {
+  max-width: 350px;
+  margin: auto;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  color: unset;
+}
+.__card:hover {
+  color: unset;
+  text-decoration: none;
+}
+.__img {
+  border-radius: 10px;
+}
+
+.__favorit {
+  background-color: #fff;
+  border-radius: 8px;
+  color: #fc9d52;
+  position: absolute;
+  right: 15px;
+  top: 8px;
+  padding: 3px 4px; 
+  font-size: 22px;
+  line-height: 100%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  z-index: 1;
+  border: 0;
+}
+.__favorit:hover {
+  background-color: #fc9d52;
+  color: #fff;
+  text-decoration: none;
+}
+.__card_detail {
+  box-shadow: 0 4px 15px rgba(175,77,0,0.13);
+  padding: 13px;
+  border-radius: 8px;
+  margin: -30px 10px 0;
+  position: relative;
+  z-index: 2;
+  background-color: #fff; 
+}
+.__card_detail h4 {
+  color: #474340;
+  line-height: 100%;
+  font-weight: bold;
+}
+.__card_detail p {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+.__type span {
+  background-color: #feefe3;
+  padding: 5px 10px 7px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 12px;
+  color: #fc9d52;
+  font-weight: bold;
+  line-height: 100%;
+}
+.__detail {
+  margin-top: 5px;
+}
+.__detail i {
+  font-size: 21px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.__detail i:nth-child(3) {
+  margin-left: 15px;
+}
+.__detail span {
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
 }

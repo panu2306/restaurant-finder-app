@@ -1,9 +1,7 @@
 package com.project.restaurantfinder.controller;
 
 import com.project.restaurantfinder.exception.RestaurantNotFoundException;
-import com.project.restaurantfinder.exception.UserNotFoundException;
 import com.project.restaurantfinder.model.Restaurant;
-import com.project.restaurantfinder.model.User;
 import com.project.restaurantfinder.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000/")
 public class RestaurantController {
     @Autowired
     private RestaurantRepository restaurantRepository;
@@ -25,17 +24,16 @@ public class RestaurantController {
         return restaurantRepository.findAll();
     }
 
-    @GetMapping("/restaurant/{id}")
-    Restaurant getRestaurantById(@PathVariable Long id){
-        return restaurantRepository.findById(id)
-                .orElseThrow(() -> new RestaurantNotFoundException(id));
+    @GetMapping("/restaurant/{rest_id}")
+    Restaurant getRestaurantById(@PathVariable Long rest_id){
+        return restaurantRepository.findById(rest_id)
+                .orElseThrow(() -> new RestaurantNotFoundException(rest_id));
     }
 
-    @PutMapping("/restaurant/{id}")
-    Restaurant updateRestaurant(@RequestBody Restaurant newRestaurant, @PathVariable Long id){
-        return restaurantRepository.findById(id)
+    @PutMapping("/restaurant/{rest_id}")
+    Restaurant updateRestaurant(@RequestBody Restaurant newRestaurant, @PathVariable Long rest_id){
+        return restaurantRepository.findById(rest_id)
                 .map(restaurant -> {
-                    restaurant.setRest_id(newRestaurant.getRest_id());
                     restaurant.setName(newRestaurant.getName());
                     restaurant.setAddress(newRestaurant.getAddress());
                     restaurant.setContact(newRestaurant.getContact());
@@ -47,15 +45,15 @@ public class RestaurantController {
                     restaurant.setZipCode(newRestaurant.getZipCode());
                     restaurant.setWebsiteLink(newRestaurant.getWebsiteLink());
                     return restaurantRepository.save(restaurant);
-                }).orElseThrow(() -> new RestaurantNotFoundException(id));
+                }).orElseThrow(() -> new RestaurantNotFoundException(rest_id));
     }
 
-    @DeleteMapping("/restaurant/{id}")
-    String deleteRestaurant(@PathVariable Long id) {
-        if(!restaurantRepository.existsById(id)){
-            throw new RestaurantNotFoundException(id);
+    @DeleteMapping("/restaurant/{rest_id}")
+    String deleteRestaurant(@PathVariable Long rest_id) {
+        if(!restaurantRepository.existsById(rest_id)){
+            throw new RestaurantNotFoundException(rest_id);
         }
-        restaurantRepository.deleteById(id);
-        return "Restaurant with id "+id+" has been deleted";
+        restaurantRepository.deleteById(rest_id);
+        return "Restaurant with id "+rest_id+" has been deleted";
     }
 }

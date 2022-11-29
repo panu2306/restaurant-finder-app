@@ -9,7 +9,7 @@ import EditUsers from './users/EditUsers';
 import AddRestaurant from './restaurants/AddRestaurant';
 import EditRestaurant from './restaurants/EditRestaurant';
 import ViewRestaurant from './restaurants/ViewRestaurant';
-
+ 
 function App() {
   return (
     <div className="App">

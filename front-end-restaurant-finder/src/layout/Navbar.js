@@ -8,9 +8,10 @@ export default function Navbar() {
             <div className="container-fluid">
                 <Link className="navbar-brand" to={`/`}>
                 <img src="https://raw.githubusercontent.com/panu2306/learn-cpp/main/assets/food-pin-svgrepo-com.svg" width="40" height="40" class="d-inline-block align-top" alt=""></img>
-                Restaurant Finder App</Link>
+                Bon Appétit</Link>
             </div>
         </nav>
     </div>
   )
 }
+

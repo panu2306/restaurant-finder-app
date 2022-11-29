@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import Form from 'react-bootstrap/Form'
 
 const SearchBar = ({ restaurants, setSearchResults }) => {
     const handleSubmit = (e) => e.preventDefault()
@@ -14,20 +15,22 @@ const SearchBar = ({ restaurants, setSearchResults }) => {
     }
 
     return (
-        <header>
-            <form className="search" onSubmit={handleSubmit}>
-                <input
-                    className="search__input"
-                    type="text"
-                    id="search"
-                    onChange={handleSearchChange}
-                    placeholder='enter zip code or restaurant name'
-                />
-                <button className="search__button">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </form>
-        </header>
+        <>
+            <div className="container d-flex justify-content-between align-items-center">
+             </div>
+
+            <Form className='d-flex justify-content-center align-items-center mt-3' onSubmit={handleSubmit}>
+                <Form.Group className=" mx-2 col-lg-4" controlId="formBasicEmail">
+                <Form.Control type="text"
+                        onChange={handleSearchChange}
+                        placeholder="Search Restaurants by zip code" />
+                </Form.Group>
+                <button className='btn text-light col-lg-1' style={{ background: "#ed4c67" }}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+            </Form>
+            
+                <h2 className='px-4' style={{ textAlign: 'left', fontWeight: 400 }}>Restaurants Open now</h2>
+        
+        </>
     )
 }
 export default SearchBar

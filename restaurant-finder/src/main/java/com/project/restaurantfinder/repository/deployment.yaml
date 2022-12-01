@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: flask-ml-app
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: flask-ml-app
+    spec:
+      containers:
+        - name: guniorn-server
+          image: pranav2306/ml-model-app:1.0
+          ports:
+            - containerPort: 9696
